@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dia dos Namorados ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Parisienne&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Great Vibes', cursive;
+      background: black;
+      color: white;
+    }
+    .container {
+      text-align: center;
+      padding-top: 50px;
+    }
+    .urso-img {
+      width: 300px;
+    }
+    .btn {
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 20px;
+      margin-top: 20px;
+      cursor: pointer;
+      border-radius: 10px;
+      font-family: 'Great Vibes', cursive;
+    }
+    .galeria {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      animation: fadeIn 1s;
+      padding: 20px;
+    }
+    .fotos {
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+      padding: 10px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      max-width: 100vw;
+    }
+    .fotos::-webkit-scrollbar {
+      display: none;
+    }
+    .fotos img {
+      flex: none;
+      width: 300px;
+      height: 400px;
+      object-fit: cover;
+      scroll-snap-align: center;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.2);
+      transition: transform 0.3s ease;
+    }
+    .fotos img:hover {
+      transform: scale(1.03);
+    }
+    .mensagem {
+      max-width: 90%;
+      text-align: center;
+      font-size: 22px;
+      margin: 40px 20px;
+      line-height: 1.8;
+    }
+    .contador {
+      font-family: 'Parisienne', cursive;
+      font-size: 30px;
+      margin: 20px;
+      color: white;
+    }
+    .mensagem-oculta {
+      display: none;
+      font-size: 20px;
+      margin: 20px;
+      max-width: 90%;
+      line-height: 1.8;
+    }
+    .coracoes {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 999;
+    }
+    .cora {
+      position: absolute;
+      font-size: 20px;
+      animation: subir 5s linear infinite;
+      color: red;
+    }
+    @keyframes subir {
+      0% { transform: translateY(100vh) scale(1); opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="coracoes" id="coracoes"></div>
+
+<div class="container" id="pagina1">
+  <img class="urso-img" src="fundocapa.png" alt="Urso com coração">
+  <div style="margin-top: 10px;">
+    <h2 style="color: white; font-size: 28px; background-color: red; padding: 10px 20px; display: inline-block; border-radius: 10px;">Bruna eu te amo</h2>
+  </div>
+  <button class="btn" onclick="mostrarGaleria()">Clique aqui</button>
+</div>
+
+<div class="galeria" id="pagina2">
+  <div class="fotos" id="fotos">
+    <img src="foto1.JPG" alt="Foto 1">
+    <img src="foto2.jpg" alt="Foto 2">
+    <img src="foto3.jpg" alt="Foto 3">
+    <img src="foto4.jpg" alt="Foto 4">
+    <img src="foto5.jpg" alt="Foto 5">
+    <img src="foto6.jpg" alt="Foto 6">
+    <img src="foto7.JPG" alt="Foto 7">
+    <img src="foto8.jpg" alt="Foto 8">
+    <img src="foto9.jpg" alt="Foto 9">
+    <img src="foto10.jpg" alt="Foto 10">
+    <img src="foto11.jpg" alt="Foto 11">
+    <img src="foto12.jpg" alt="Foto 12">
+  </div>
+  <p class="mensagem">
+    Hoje é o dia de celebrar o amor — e eu não poderia estar mais grato por viver esse sentimento ao seu lado. Minha franjudinha, você é mais do que a minha namorada, é meu porto seguro, minha paz e, ao mesmo tempo, o furacão bom que virou minha vida de cabeça pra baixo (no melhor dos sentidos) nesses últimos 1 mês e meio.
+    <br><br>
+    Bruna, estar com você é acordar todos os dias com o coração mais leve, com um sorriso bobo no rosto e com a certeza de que encontrei a mulher perfeita. Sua risada virou minha trilha sonora favorita, sua mordida no lábio é o que mais amo, seu abraço é o melhor lugar do mundo e o seu jeitinho — único, lindo e só seu — é o que mais me encanta a cada dia.
+    <br><br>
+    Eu não preciso de promessas grandiosas, só de mais dias ao seu lado, mais momentos nossos, mais histórias pra contar. Que esse seja apenas mais um dos muitos Dias dos Namorados que vamos viver juntos. Te amo mais do que palavras conseguem dizer — mas, mesmo assim, eu nunca vou parar de tentar….. quero construir um futuro contigo minha franjudinha, te amo ❤
+  </p>
+  <div class="contador" id="contador"></div>
+  <button class="btn" onclick="mostrarMensagemFinal()">Mensagem Final</button>
+  <p class="mensagem-oculta" id="mensagemFinal">
+    Te amar é a coisa mais linda que já me aconteceu, Bruna. Obrigado por existir e por me deixar fazer parte da sua vida. Hoje e sempre, você é meu sonho mais bonito. Feliz Dia dos Namorados, minha vida! ❤️🌹
+  </p>
+  <img src="fim.png" style="margin-bottom: 40px; border-radius: 20px; max-width: 90%;" alt="Foto final">
+</div>
+
+<audio id="musica" autoplay loop>
+  <source src="musica-romantica.mp3" type="audio/mpeg">
+  Seu navegador não suporta áudio.
+</audio>
+
+<script>
+  function mostrarGaleria() {
+    document.getElementById("pagina1").style.display = "none";
+    document.getElementById("pagina2").style.display = "flex";
+    const musica = document.getElementById("musica");
+    if (musica) {
+      musica.play().catch(() => {});
+    }
+  }
+
+  function mostrarMensagemFinal() {
+    const msg = document.getElementById("mensagemFinal");
+    msg.style.display = "block";
+    msg.scrollIntoView({ behavior: "smooth" });
+  }
+
+  function atualizarContador() {
+    const inicio = new Date("2025-05-01T19:00:00");
+    const agora = new Date();
+    const diff = agora - inicio;
+
+    const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutos = Math.floor((diff / (1000 * 60)) % 60);
+    const segundos = Math.floor((diff / 1000) % 60);
+
+    const texto = `Te amo há ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos ❤️❤️❤️`;
+    document.getElementById("contador").textContent = texto;
+  }
+
+  setInterval(atualizarContador, 1000);
+
+  function criarCoracoes() {
+    const coracoes = document.getElementById('coracoes');
+    const cora = document.createElement('div');
+    cora.classList.add('cora');
+    cora.style.left = Math.random() * 100 + 'vw';
+    cora.style.fontSize = (Math.random() * 10 + 15) + 'px';
+    cora.textContent = '❤️';
+    coracoes.appendChild(cora);
+    setTimeout(() => cora.remove(), 5000);
+  }
+  setInterval(criarCoracoes, 300);
+</script>
+
+</body>
+</html>
